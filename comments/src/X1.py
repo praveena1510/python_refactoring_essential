@@ -2,15 +2,15 @@ class X1:
 
     @staticmethod
     def m(lower_bound, upper_bound):
-        p = 0
+        accumulated_sum = 0
 
         # Iterate from lower bound (q) to upper bound (z)
         for i in range(lower_bound, upper_bound + 1):
             # Add square of each number in the range
-            p += X1.n(i)
+            accumulated_sum += X1.n(i)
 
         # Return accumulated sum
-        return p
+        return accumulated_sum
 
     @staticmethod
     def n(k):
