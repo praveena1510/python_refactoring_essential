@@ -15,7 +15,7 @@ class CustomerService:
         return self.name_formatter.format_display_name(first_name, last_name)
 
     def calculate_loyalty_points(self, number_of_purchases: int) -> int:
-        return number_of_purchases * 10
+        return self.loyalty_points_calculator.calculate_loyalty_points(number_of_purchases)
 
     def determine_account_status(self, days_since_last_login: int) -> str:
         if days_since_last_login > 365:
@@ -41,5 +41,6 @@ class NameFormatter:
 
 
 class LoyaltyPointsCalculator:
-    pass
 
+    def calculate_loyalty_points(self, number_of_purchases: int) -> int:
+        return number_of_purchases * 10
