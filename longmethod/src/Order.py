@@ -33,7 +33,7 @@ class Order:
         self.validate()
 
         # Subtotal calculation
-        subtotal = sum(item.price * item.quantity for item in self.items)
+        subtotal = self.calculate_subtotal()
 
         # Discount rules
         discount = 0.0
@@ -50,6 +50,10 @@ class Order:
         total = taxable_amount + tax
 
         return OrderSummary(subtotal, discount, tax, total)
+
+    def calculate_subtotal(self):
+        subtotal = sum(item.price * item.quantity for item in self.items)
+        return subtotal
 
     def validate(self):
         if self.items is None:
