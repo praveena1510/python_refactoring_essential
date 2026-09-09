@@ -7,6 +7,7 @@ class CustomerService:
         self.email_validator = EmailValidator()
         self.name_formatter = NameFormatter()
         self.loyalty_points_calculator = LoyaltyPointsCalculator()
+        self.account_status_determiner = AccountStatusDeterminer()
 
     def is_valid_email(self, email: str) -> bool:
         return self.email_validator.is_valid_email(email)
@@ -44,3 +45,7 @@ class LoyaltyPointsCalculator:
 
     def calculate_loyalty_points(self, number_of_purchases: int) -> int:
         return number_of_purchases * 10
+
+
+class AccountStatusDeterminer:
+    pass
