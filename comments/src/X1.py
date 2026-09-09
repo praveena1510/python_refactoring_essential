@@ -13,6 +13,6 @@ class X1:
         return accumulated_sum
 
     @staticmethod
-    def square(k):
+    def square(input):
         # Return square of input
-        return k * k
+        return input * input
