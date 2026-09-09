@@ -1,5 +1,4 @@
-import re
-
+from divergent_change.src.EmailValidator import EmailValidator
 from divergent_change.src.LoyaltyPointsCalculator import LoyaltyPointsCalculator
 from divergent_change.src.NameFormatter import NameFormatter
 
@@ -23,15 +22,6 @@ class CustomerService:
 
     def determine_account_status(self, days_since_last_login: int) -> str:
         return self.account_status_determiner.determine_account_status(days_since_last_login)
-
-
-class EmailValidator:
-
-    def is_valid_email(self, email: str) -> bool:
-        if email is None:
-            return False
-        pattern = r"^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$"
-        return re.match(pattern, email) is not None
 
 
 class AccountStatusDeterminer:
