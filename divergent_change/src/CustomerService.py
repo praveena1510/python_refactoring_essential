@@ -1,5 +1,7 @@
 import re
 
+from divergent_change.src.NameFormatter import NameFormatter
+
 
 class CustomerService:
 
@@ -29,12 +31,6 @@ class EmailValidator:
             return False
         pattern = r"^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$"
         return re.match(pattern, email) is not None
-
-
-class NameFormatter:
-
-    def format_display_name(self, first_name: str, last_name: str) -> str:
-        return f"{first_name.strip()} {last_name.strip().upper()}"
 
 
 class LoyaltyPointsCalculator:
