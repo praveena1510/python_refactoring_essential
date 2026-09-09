@@ -32,14 +32,9 @@ class Order:
     def summarise(self) -> OrderSummary:
         self.validate()
         subtotal = self.calculate_subtotal()
-
         discount = self.discount(subtotal)
-
         tax, taxable_amount = self.calculate_tax(discount, subtotal)
-
-        # Total calculation
         total = self.total(tax, taxable_amount)
-
         return OrderSummary(subtotal, discount, tax, total)
 
     def total(self, tax, taxable_amount):
