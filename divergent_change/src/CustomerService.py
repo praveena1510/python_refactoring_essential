@@ -6,6 +6,7 @@ class CustomerService:
     def __init__(self):
         self.email_validator = EmailValidator()
         self.name_formatter = NameFormatter()
+        self.loyalty_points_calculator = LoyaltyPointsCalculator()
 
     def is_valid_email(self, email: str) -> bool:
         return self.email_validator.is_valid_email(email)
@@ -37,4 +38,8 @@ class NameFormatter:
 
     def format_display_name(self, first_name: str, last_name: str) -> str:
         return f"{first_name.strip()} {last_name.strip().upper()}"
+
+
+class LoyaltyPointsCalculator:
+    pass
 
