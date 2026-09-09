@@ -6,7 +6,7 @@ from divergent_change.src.NameFormatter import NameFormatter
 
 class CustomerService:
 
-    def __init__(self, email_validator=EmailValidator()):
+    def __init__(self, email_validator: EmailValidator):
         self.email_validator = email_validator
         self.name_formatter = NameFormatter()
         self.loyalty_points_calculator = LoyaltyPointsCalculator()

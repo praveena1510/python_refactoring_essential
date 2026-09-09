@@ -1,12 +1,13 @@
 import unittest
 
 from divergent_change.src.CustomerService import CustomerService
+from divergent_change.src.EmailValidator import EmailValidator
 
 
 class TestCustomerService(unittest.TestCase):
 
     def setUp(self):
-        self.service = CustomerService()
+        self.service = CustomerService(EmailValidator())
 
     # -------------------------
     # is_valid_email tests
