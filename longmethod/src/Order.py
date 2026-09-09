@@ -31,8 +31,6 @@ class Order:
 
     def summarise(self) -> OrderSummary:
         self.validate()
-
-        # Subtotal calculation
         subtotal = self.calculate_subtotal()
 
         # Discount rules
