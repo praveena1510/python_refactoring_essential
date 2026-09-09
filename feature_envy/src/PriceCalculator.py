@@ -14,7 +14,7 @@ class Product:
     def calculate_final_price(self, product) -> float:
         price = self.get_price()
 
-        if product.is_on_sale():
+        if self.is_on_sale():
             price *= 0.8
 
         return price
