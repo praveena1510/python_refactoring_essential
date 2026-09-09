@@ -1,3 +1,4 @@
+from divergent_change.src.AccountStatusDeterminer import AccountStatusDeterminer
 from divergent_change.src.EmailValidator import EmailValidator
 from divergent_change.src.LoyaltyPointsCalculator import LoyaltyPointsCalculator
 from divergent_change.src.NameFormatter import NameFormatter
@@ -24,11 +25,3 @@ class CustomerService:
         return self.account_status_determiner.determine_account_status(days_since_last_login)
 
 
-class AccountStatusDeterminer:
-
-    def determine_account_status(self, days_since_last_login: int) -> str:
-        if days_since_last_login > 365:
-            return "INACTIVE"
-        elif days_since_last_login > 30:
-            return "DORMANT"
-        return "ACTIVE"
