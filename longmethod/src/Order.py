@@ -30,7 +30,6 @@ class Order:
         self.customer = customer
 
     def summarise(self) -> OrderSummary:
-        # Validation
         self.validate()
 
         # Subtotal calculation
