@@ -1,6 +1,10 @@
 import re
 
+
 class CustomerService:
+
+    def __init__(self):
+        self.email_validator = EmailValidator()
 
     def is_valid_email(self, email: str) -> bool:
         if email is None:
@@ -20,3 +24,7 @@ class CustomerService:
         elif days_since_last_login > 30:
             return "DORMANT"
         return "ACTIVE"
+
+
+class EmailValidator:
+    pass
