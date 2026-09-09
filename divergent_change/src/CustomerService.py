@@ -1,5 +1,6 @@
 import re
 
+from divergent_change.src.LoyaltyPointsCalculator import LoyaltyPointsCalculator
 from divergent_change.src.NameFormatter import NameFormatter
 
 
@@ -31,12 +32,6 @@ class EmailValidator:
             return False
         pattern = r"^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$"
         return re.match(pattern, email) is not None
-
-
-class LoyaltyPointsCalculator:
-
-    def calculate_loyalty_points(self, number_of_purchases: int) -> int:
-        return number_of_purchases * 10
 
 
 class AccountStatusDeterminer:
