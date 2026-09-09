@@ -33,7 +33,6 @@ class Order:
         self.validate()
         subtotal = self.calculate_subtotal()
 
-        # Discount rules
         discount = self.discount(subtotal)
 
         # Tax calculation
