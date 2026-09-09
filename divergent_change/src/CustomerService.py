@@ -11,7 +11,7 @@ class CustomerService:
         return self.email_validator.is_valid_email(email)
 
     def format_display_name(self, first_name: str, last_name: str) -> str:
-        return f"{first_name.strip()} {last_name.strip().upper()}"
+        return self.name_formatter.format_display_name(first_name, last_name)
 
     def calculate_loyalty_points(self, number_of_purchases: int) -> int:
         return number_of_purchases * 10
@@ -34,5 +34,7 @@ class EmailValidator:
 
 
 class NameFormatter:
-    pass
+
+    def format_display_name(self, first_name: str, last_name: str) -> str:
+        return f"{first_name.strip()} {last_name.strip().upper()}"
 
