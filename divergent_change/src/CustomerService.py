@@ -5,6 +5,7 @@ class CustomerService:
 
     def __init__(self):
         self.email_validator = EmailValidator()
+        self.name_formatter = NameFormatter()
 
     def is_valid_email(self, email: str) -> bool:
         return self.email_validator.is_valid_email(email)
@@ -30,4 +31,8 @@ class EmailValidator:
             return False
         pattern = r"^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$"
         return re.match(pattern, email) is not None
+
+
+class NameFormatter:
+    pass
 
