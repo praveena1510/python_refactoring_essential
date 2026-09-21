@@ -7,7 +7,7 @@ class ShippingNoteGenerator:
         full_name = customer.first_name + " " + customer.last_name
 
         address = address.line1 + ", " + (
-            address.address_line2 + ", " if address.address_line2 is not None else ""
+            address.line2 + ", " if address.line2 is not None else ""
         ) + address.city + ", " + address.postcode + ", " + address.country
 
         return (
@@ -27,7 +27,7 @@ class Customer:
 @dataclass
 class Address:
     line1: str
-    address_line2: str
+    line2: str
     city: str
     postcode: str
     country: str
