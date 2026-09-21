@@ -54,7 +54,7 @@ class ShippingNoteGeneratorTest(unittest.TestCase):
     def test_should_include_quantity_correctly(self):
         result = self.shipping_note_generator.generate_shipping_note("10 Market Street", "", "Liverpool", "L1 8JQ",
                                                                      "UK", "ORD-321", "Keyboard", 10,
-                                                                     Customer("Tom", "White"))
+                                                                     Customer("Tom", "White"), Address("10 Market Street", "", "Liverpool", "L1 8JQ", "UK"))
 
         self.assertIn("Quantity: 10", result)
 
