@@ -1,3 +1,6 @@
+from dataclasses import dataclass
+
+
 class ShippingNoteGenerator:
 
     def generate_shipping_note(
@@ -29,3 +32,8 @@ class ShippingNoteGenerator:
             f"Item: {item_description}\n"
             f"Quantity: {quantity}"
         )
+@dataclass
+class Customer:
+    first_name:str
+    last_name:str
+
