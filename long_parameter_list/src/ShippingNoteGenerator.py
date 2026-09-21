@@ -3,7 +3,7 @@ from dataclasses import dataclass
 
 class ShippingNoteGenerator:
 
-    def generate_shipping_note(self, order_id, item_description, quantity, customer=None, address=None):
+    def generate_shipping_note(self, order, customer=None, address=None):
         full_name = customer.first_name + " " + customer.last_name
 
         address = address.line1 + ", " + (
@@ -12,12 +12,21 @@ class ShippingNoteGenerator:
 
         return (
             "SHIPPING NOTE\n"
-            f"Order: {order_id}\n"
+            f"Order: {order.order_id}\n"
             f"Customer: {full_name}\n"
             f"Ship To: {address}\n"
-            f"Item: {item_description}\n"
-            f"Quantity: {quantity}"
+            f"Item: {order.item_description}\n"
+            f"Quantity: {order.quantity}"
         )
+
+
+@dataclass
+class Order:
+    order_id: str
+    item_description: str
+    quantity: int
+
+
 @dataclass
 class Customer:
     first_name:str
@@ -31,6 +40,5 @@ class Address:
     city: str
     postcode: str
     country: str
-
 
 
