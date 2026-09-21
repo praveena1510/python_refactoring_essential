@@ -1,6 +1,6 @@
 import unittest
 
-from long_parameter_list.src.ShippingNoteGenerator import ShippingNoteGenerator, Customer
+from long_parameter_list.src.ShippingNoteGenerator import ShippingNoteGenerator, Customer, Address
 
 
 class ShippingNoteGeneratorTest(unittest.TestCase):
@@ -11,7 +11,7 @@ class ShippingNoteGeneratorTest(unittest.TestCase):
     def test_should_generate_shipping_note_with_all_input_fields(self):
         result = self.shipping_note_generator.generate_shipping_note("12 Baker Street", "Flat 4B", "London", "NW1 6XE",
                                                                      "UK", "ORD-123", "Wireless Headphones", 2,
-                                                                     Customer("Jane", "Doe"))
+                                                                     Customer("Jane", "Doe"), Address("12 Baker Street", "Flat 4B", "London", "NW1 6XE", "UK"))
 
         self.assertIn("Order: ORD-123", result)
         self.assertIn("Customer: Jane Doe", result)
