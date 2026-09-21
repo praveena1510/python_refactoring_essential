@@ -32,15 +32,14 @@ class WeatherReport:
         for forecast in forecasts:
 
             if forecast.is_morning():
-                time_of_the_day = forecast.period.capitalize()
                 line = (
-                    time_of_the_day + ": "
-                    + str(forecast.get_temperature())
-                    + "°C, "
-                    + forecast.get_condition()
-                    + ", wind "
-                    + str(forecast.get_wind_speed())
-                    + "km/h"
+                        forecast.period.capitalize() + ": "
+                        + str(forecast.get_temperature())
+                        + "°C, "
+                        + forecast.get_condition()
+                        + ", wind "
+                        + str(forecast.get_wind_speed())
+                        + "km/h"
                 )
                 output.append(line)
 
