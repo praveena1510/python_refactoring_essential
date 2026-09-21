@@ -7,9 +7,9 @@ class ShippingNoteGenerator:
                                quantity, customer=None, address=None):
         full_name = customer.first_name + " " + customer.last_name
 
-        address = address_line1 + ", " + (
-            address_line2 + ", " if address_line2 is not None else ""
-        ) + city + ", " + postcode + ", " + country
+        address = address.address_line1 + ", " + (
+            address.address_line2 + ", " if address.address_line2 is not None else ""
+        ) + address.city + ", " + address.postcode + ", " + address.country
 
         return (
             "SHIPPING NOTE\n"
