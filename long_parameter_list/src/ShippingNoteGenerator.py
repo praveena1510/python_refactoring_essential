@@ -4,7 +4,7 @@ from dataclasses import dataclass
 class ShippingNoteGenerator:
 
     def generate_shipping_note(self, address_line1, address_line2, city, postcode, country, order_id, item_description,
-                               quantity, customer=None):
+                               quantity, customer=None, address=None):
         full_name = customer.first_name + " " + customer.last_name
 
         address = address_line1 + ", " + (
