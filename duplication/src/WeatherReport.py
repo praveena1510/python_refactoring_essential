@@ -30,8 +30,6 @@ class Forecast:
 class WeatherReport:
     def format_daily_report(self, forecasts, output):
         for forecast in forecasts:
-
-            if forecast.is_morning():
                 line = (
                         forecast.period.capitalize() + ": "
                         + str(forecast.get_temperature())
@@ -40,41 +38,5 @@ class WeatherReport:
                         + ", wind "
                         + str(forecast.get_wind_speed())
                         + "km/h"
-                )
-                output.append(line)
-
-            if forecast.is_afternoon():
-                line = (
-                    "Afternoon: "
-                    + str(forecast.get_temperature())
-                    + "°C, "
-                    + forecast.get_condition()
-                    + ", wind "
-                    + str(forecast.get_wind_speed())
-                    + "km/h"
-                )
-                output.append(line)
-
-            if forecast.is_evening():
-                line = (
-                    "Evening: "
-                    + str(forecast.get_temperature())
-                    + "°C, "
-                    + forecast.get_condition()
-                    + ", wind "
-                    + str(forecast.get_wind_speed())
-                    + "km/h"
-                )
-                output.append(line)
-
-            if forecast.is_night():
-                line = (
-                    "Night: "
-                    + str(forecast.get_temperature())
-                    + "°C, "
-                    + forecast.get_condition()
-                    + ", wind "
-                    + str(forecast.get_wind_speed())
-                    + "km/h"
                 )
                 output.append(line)
