@@ -32,7 +32,7 @@ class WeatherReport:
         for forecast in forecasts:
 
             if forecast.is_morning():
-                time_of_the_day = "Morning"
+                time_of_the_day = forecast.period[0:1].capitalize() + forecast.period[1::]
                 line = (
                     time_of_the_day + ": "
                     + str(forecast.get_temperature())
