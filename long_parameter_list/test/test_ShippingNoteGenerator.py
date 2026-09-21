@@ -43,7 +43,7 @@ class ShippingNoteGeneratorTest(unittest.TestCase):
     def test_should_include_full_address_across_all_fields(self):
         result = self.shipping_note_generator.generate_shipping_note("99 High Road", "Floor 2", "Leeds", "LS1 4AB",
                                                                      "UK", "ORD-777", "Monitor", 3,
-                                                                     Customer("Emma", "Jones"))
+                                                                     Customer("Emma", "Jones"), Address("99 High Road", "Floor 2", "Leeds", "LS1 4AB", "UK"))
 
         self.assertIn("99 High Road", result)
         self.assertIn("Floor 2", result)
