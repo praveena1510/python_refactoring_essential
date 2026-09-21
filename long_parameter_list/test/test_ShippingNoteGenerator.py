@@ -34,7 +34,7 @@ class ShippingNoteGeneratorTest(unittest.TestCase):
     def test_should_include_order_id_and_item_details(self):
         result = self.shipping_note_generator.generate_shipping_note("Alice", "Brown", "50 King Street", "Unit 3",
                                                                      "Birmingham", "B1 1AA", "UK", "ORD-555", "Tablet",
-                                                                     5)
+                                                                     5,Customer("Alice","Brown"))
 
         self.assertIn("Order: ORD-555", result)
         self.assertIn("Item: Tablet", result)
