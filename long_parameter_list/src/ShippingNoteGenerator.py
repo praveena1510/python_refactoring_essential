@@ -24,3 +24,14 @@ class Customer:
     first_name:str
     last_name:str
 
+
+@dataclass
+class Address:
+    address_line1: str
+    address_line2: str
+    city: str
+    postcode: str
+    country: str
+
+
+
