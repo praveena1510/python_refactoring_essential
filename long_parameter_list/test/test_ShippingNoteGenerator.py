@@ -27,7 +27,7 @@ class ShippingNoteGeneratorTest(unittest.TestCase):
     def test_should_include_customer_full_name(self):
         result = self.shipping_note_generator.generate_shipping_note("1 High Street", "Apt 2", "Manchester", "M1 2AB",
                                                                      "UK", "ORD-999", "Laptop", 1,
-                                                                     Customer("John", "Smith"))
+                                                                     Customer("John", "Smith"), Address("1 High Street", "Apt 2", "Manchester", "M1 2AB", "UK"))
 
         self.assertIn("Customer: John Smith", result)
 
