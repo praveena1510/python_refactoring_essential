@@ -6,7 +6,7 @@ class ShippingNoteGenerator:
     def generate_shipping_note(self, order_id, item_description, quantity, customer=None, address=None):
         full_name = customer.first_name + " " + customer.last_name
 
-        address = address.address_line1 + ", " + (
+        address = address.line1 + ", " + (
             address.address_line2 + ", " if address.address_line2 is not None else ""
         ) + address.city + ", " + address.postcode + ", " + address.country
 
@@ -26,7 +26,7 @@ class Customer:
 
 @dataclass
 class Address:
-    address_line1: str
+    line1: str
     address_line2: str
     city: str
     postcode: str
