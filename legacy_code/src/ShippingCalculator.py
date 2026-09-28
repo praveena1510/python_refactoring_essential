@@ -1,5 +1,6 @@
 from legacy_code.src.ExpressShipping import ExpressShipping
 from legacy_code.src.OrderAPI import OrderAPI
+from legacy_code.src.OvernightShipping import OvernightShipping
 from legacy_code.src.StandardShipping import StandardShipping
 
 
@@ -19,7 +20,7 @@ class ShippingCalculator:
                 return ExpressShipping().calculate_shipping_for_type(order)
 
             elif order.shippingType == "OVERNIGHT":
-                return self.calculate_shipping_for_type(order)
+                return OvernightShipping().calculate_shipping_for_type(order)
             elif order.shippingType == "INTERNATIONAL":
                 return order.weightKg * 1.5
 
@@ -29,6 +30,3 @@ class ShippingCalculator:
         except Exception as e:
             print(e)
             return -1.0
-
-    def calculate_shipping_for_type(self, order):
-        return order.weightKg * 1.2 + 25
