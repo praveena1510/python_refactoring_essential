@@ -13,3 +13,11 @@ class CalculateShippingTest(unittest.TestCase):
                                             )
         shipping_calculator = ShippingCalculator(stub_order_api)
         self.assertEqual(2.5, shipping_calculator.calculate_shipping(1001))
+
+    def test_express_shipping(self):
+        stub_order_api = OrderAPI()
+        stub_order_api.fetch_order_details = lambda order_id: Order(orderId=1002, shippingType="EXPRESS", weightKg=8.5,
+                                                                  distanceKm=300, fragile=True
+                                            )
+        shipping_calculator = ShippingCalculator(stub_order_api)
+        self.assertEqual(36.8, shipping_calculator.calculate_shipping(1002))
