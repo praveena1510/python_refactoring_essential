@@ -7,7 +7,7 @@ from legacy_code.src.StandardShipping import StandardShipping
 
 class ShippingCalculator:
 
-    def __init__(self, order_api: OrderAPI):
+    def __init__(self, order_api: OrderAPI, shipping_types=None):
         self.order_api = order_api
 
     def calculate_shipping(self, order_id: int) -> float:
