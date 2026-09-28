@@ -11,7 +11,7 @@ class ShippingCalculator:
             order = self.order_api.fetch_order_details(order_id)
 
             if order.shippingType == "STANDARD":
-                return order.weightKg * 0.5
+                return self.calculate_shipping_for_type(order)
 
             elif order.shippingType == "EXPRESS":
                 return order.weightKg * 0.8 + order.distanceKm * 0.1
@@ -27,3 +27,6 @@ class ShippingCalculator:
         except Exception as e:
             print(e)
             return -1.0
+
+    def calculate_shipping_for_type(self, order):
+        return order.weightKg * 0.5
