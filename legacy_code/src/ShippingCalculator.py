@@ -15,20 +15,7 @@ class ShippingCalculator:
 
     def calculate_shipping(self, order_id: int) -> float:
         try:
-            url = f"https://codemanship.co.uk/api/orders.php?orderId={order_id}"
-
-            response = requests.get(url)
-            response.raise_for_status()
-
-            data = response.json()
-
-            order = Order(
-                orderId=data["orderId"],
-                shippingType=data["shippingType"],
-                weightKg=data["weightKg"],
-                distanceKm=data["distanceKm"],
-                fragile=data["fragile"]
-            )
+            order = self.fetch_order_details(order_id)
 
             if order.shippingType == "STANDARD":
                 return order.weightKg * 0.5
@@ -45,3 +32,17 @@ class ShippingCalculator:
         except Exception as e:
             print(e)
             return -1.0
+
+    def fetch_order_details(self, order_id):
+        url = f"https://codemanship.co.uk/api/orders.php?orderId={order_id}"
+        response = requests.get(url)
+        response.raise_for_status()
+        data = response.json()
+        order = Order(
+            orderId=data["orderId"],
+            shippingType=data["shippingType"],
+            weightKg=data["weightKg"],
+            distanceKm=data["distanceKm"],
+            fragile=data["fragile"]
+        )
+        return order
