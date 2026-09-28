@@ -1,4 +1,5 @@
 from legacy_code.src.ExpressShipping import ExpressShipping
+from legacy_code.src.InternationalShipping import InternationalShipping
 from legacy_code.src.OrderAPI import OrderAPI
 from legacy_code.src.OvernightShipping import OvernightShipping
 from legacy_code.src.StandardShipping import StandardShipping
@@ -22,7 +23,7 @@ class ShippingCalculator:
             elif order.shippingType == "OVERNIGHT":
                 return OvernightShipping().calculate_shipping_for_type(order)
             elif order.shippingType == "INTERNATIONAL":
-                return order.weightKg * 1.5
+                return InternationalShipping().calculate_shipping_for_type(order)
 
             else:
                 raise RuntimeError(f"Unknown shipping type: {order.shippingType}")
