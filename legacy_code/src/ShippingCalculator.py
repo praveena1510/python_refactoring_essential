@@ -19,7 +19,7 @@ class ShippingCalculator:
                 return ExpressShipping().calculate_shipping_for_type(order)
 
             elif order.shippingType == "OVERNIGHT":
-                return order.weightKg * 1.2 + 25
+                return self.calculate_shipping_for_type(order)
             elif order.shippingType == "INTERNATIONAL":
                 return order.weightKg * 1.5
 
@@ -29,3 +29,6 @@ class ShippingCalculator:
         except Exception as e:
             print(e)
             return -1.0
+
+    def calculate_shipping_for_type(self, order):
+        return order.weightKg * 1.2 + 25
