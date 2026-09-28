@@ -1,21 +1,14 @@
-from dataclasses import dataclass
-import requests
-
-
-@dataclass(frozen=True)
-class Order:
-    orderId: int
-    shippingType: str
-    weightKg: float
-    distanceKm: float
-    fragile: bool
+from legacy_code.src.OrderAPI import OrderAPI
 
 
 class ShippingCalculator:
 
+    def __init__(self, order_api: OrderAPI):
+        self.order_api = order_api
+
     def calculate_shipping(self, order_id: int) -> float:
         try:
-            order = self.fetch_order_details(order_id)
+            order = self.order_api.fetch_order_details(order_id)
 
             if order.shippingType == "STANDARD":
                 return order.weightKg * 0.5
@@ -32,17 +25,3 @@ class ShippingCalculator:
         except Exception as e:
             print(e)
             return -1.0
-
-    def fetch_order_details(self, order_id):
-        url = f"https://codemanship.co.uk/api/orders.php?orderId={order_id}"
-        response = requests.get(url)
-        response.raise_for_status()
-        data = response.json()
-        order = Order(
-            orderId=data["orderId"],
-            shippingType=data["shippingType"],
-            weightKg=data["weightKg"],
-            distanceKm=data["distanceKm"],
-            fragile=data["fragile"]
-        )
-        return order
